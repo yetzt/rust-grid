@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 namespace Oxide.Plugins {
-	[Info("Grid", "yetzt", "0.0.2")]
+	[Info("Grid", "yetzt", "0.0.3")]
 	[Description("Get the map grid reference of a position")]
 
 	public class Grid : RustPlugin {
@@ -38,7 +38,7 @@ namespace Oxide.Plugins {
 		string getGrid(Vector3 pos) {
 			char letter = 'A';
 			var x = Mathf.Floor((pos.x+(ConVar.Server.worldsize/2)) / 146.3f)%26;
-			var z = (Mathf.Floor(ConVar.Server.worldsize/146.3f)-1)-Mathf.Floor((pos.z+(ConVar.Server.worldsize/2)) / 146.3f);
+			var z = (Mathf.Floor(ConVar.Server.worldsize/146.3f))-Mathf.Floor((pos.z+(ConVar.Server.worldsize/2)) / 146.3f);
 			letter = (char)(((int)letter)+x);
 			return $"{letter}{z}";
 		}
